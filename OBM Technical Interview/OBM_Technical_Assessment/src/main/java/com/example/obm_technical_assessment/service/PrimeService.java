@@ -13,6 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 
+  /*
+--------------------------------------------------------------------
+The service layer is used to drive the logic of the application and
+is responsible for calculating the prime numbers.
+--------------------------------------------------------------------
+ */
 
 public class PrimeService {
   public Prime getPrimes(Integer number, Algorithms algorithm){
@@ -40,7 +46,9 @@ public class PrimeService {
   }
 
   /*
-
+  getAllPrimesRecursive takes the input and sets the base condition so that the recursion is finite,
+  it then calls itself constantly while decrementing the input to check if its current value is prime,
+  if true, it appends it to the result list.
    */
   private Prime getAllPrimesRecursive(int input, List<Integer> result){
 
@@ -55,7 +63,7 @@ public class PrimeService {
 
   /*
   primeCheck takes an input and checks it against each value up to its half for primality,
-  it does this as if the value
+  it does this to prevent needless checking to increase efficiency
    */
   private boolean primeCheck(int value){
     if(value < 2) return false;
