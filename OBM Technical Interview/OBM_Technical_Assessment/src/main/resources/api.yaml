@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  title: OBM Technical Assessment
+  description: A RESTful service which calculates and returns all prime numbers up to, and including, the number provided.
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /primes/{number}/{algorithm}:
+    get:
+      tags:
+        - primes
+      summary: Get Primes for a provided input
+      operationId: getPrimes
+      parameters:
+        - name: number
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: algorithm
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/Algorithms'
+
+
+      responses:
+        '200':
+          description: Primes Calculated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prime'
+
+components:
+  schemas:
+    Prime:
+      type: object
+      properties:
+        primeNumbers:
+         type: array
+         items:
+           type: integer
+           format: INT64
+           example: 17
+    Algorithms:
+      type: string
+      enum:
+        - BRUTE_FORCE
+        - RECURSIVE

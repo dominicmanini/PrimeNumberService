@@ -1,0 +1,7 @@
+com\example\obm_technical_assessment\controller\PrimeController.class
+com\example\obm_technical_assessment\ObmTechnicalAssessmentApplication.class
+com\example\obm_technical_assessment\service\PrimeService.class
+org\openapitools\model\Algorithms.class
+org\openapitools\model\Prime.class
+org\openapitools\api\PrimesApi.class
+com\example\obm_technical_assessment\service\PrimeService$1.class
