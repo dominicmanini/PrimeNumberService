@@ -32,4 +32,15 @@ class ObmTechnicalAssessmentApplicationTests {
     Prime expectedPrime = new Prime().primeNumbers(expectedInput);
     assertEquals(expectedPrime, primeService.getPrimes(19, RECURSIVE));
   }
+
+  @Test
+  void shouldReturnFullResponseWithValidInput(){
+    PrimeService primeService = new PrimeService();
+    String actual = ResponseEntity.ok(primeService.getPrimes(17,BRUTE_FORCE)).toString();
+    assertEquals("<200 OK OK,class Prime {\n"
+        + "    primeNumbers: [2, 3, 5, 7, 11, 13, 17]\n"
+        + "},[]>>\n", actual);
+  }
 }
+
+
